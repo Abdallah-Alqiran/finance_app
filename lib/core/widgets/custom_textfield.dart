@@ -8,13 +8,17 @@ class CustomTextfield extends StatelessWidget {
   final double? width;
   final double? height;
   final bool? isPassword;
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
   const CustomTextfield({
     super.key,
     this.hintText,
     this.suffixIcon,
     this.width,
     this.height,
-    this.isPassword
+    this.isPassword,
+    this.controller,
+    this.validator,
   });
 
   @override
@@ -22,7 +26,9 @@ class CustomTextfield extends StatelessWidget {
     return SizedBox(
       width: width ?? 331.w,
       height: height ?? 56.h,
-      child: TextField(
+      child: TextFormField(
+        controller: controller,
+        validator: validator,
         autofocus: false,
         cursorColor: AppColors.primaryColor,
         obscureText: isPassword ?? false,
@@ -42,9 +48,17 @@ class CustomTextfield extends StatelessWidget {
             borderRadius: BorderRadius.circular(8.r),
             borderSide: BorderSide(color: AppColors.primaryColor, width: 2.w),
           ),
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8.r),
+            borderSide: BorderSide(color: Colors.red, width: 1.w),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8.r),
+            borderSide: BorderSide(color: Colors.red, width: 1.w),
+          ),
           filled: true,
           fillColor: Color(0xFFF7F8F9),
-          suffixIcon: suffixIcon
+          suffixIcon: suffixIcon,
         ),
       ),
     );
