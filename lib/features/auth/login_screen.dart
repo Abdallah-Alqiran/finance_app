@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 import 'package:finance_app/core/styling/app_colors.dart';
 import 'package:finance_app/core/styling/app_styles.dart';
@@ -59,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     width: 200.w,
                     child: Text(
-                      "Welcom Back! Again!",
+                      "Welcome Back! Again!",
                       style: AppStyles.primaryHeadlineStyle,
                     ),
                   ),
@@ -71,6 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       if (value!.isEmpty) {
                         return "Enter your Email";
                       }
+                      return null;
                     },
                   ),
                   const HeightSpace(15),
@@ -90,6 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       if (value.length < 8) {
                         return "Password must be at least 8 characters";
                       }
+                      return null;
                     },
                   ),
                   const HeightSpace(15),
@@ -121,18 +122,23 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SocialLoginButtons(),
                   const HeightSpace(120),
                   Center(
-                    child: RichText(
-                      text: TextSpan(
-                        text: "Don't have an account? ",
-                        style: AppStyles.navyBlue15BoldStyle.copyWith(
-                          color: AppColors.primaryColor,
-                        ),
-                        children: [
-                          TextSpan(
-                            text: "Register Now",
-                            style: AppStyles.navyBlue15BoldStyle,
+                    child: InkWell(
+                      onTap: () {
+                        GoRouter.of(context).pushNamed(AppRoutes.registerScreen);
+                      },
+                      child: RichText(
+                        text: TextSpan(
+                          text: "Don't have an account? ",
+                          style: AppStyles.navyBlue15BoldStyle.copyWith(
+                            color: AppColors.primaryColor,
                           ),
-                        ],
+                          children: [
+                            TextSpan(
+                              text: "Register Now",
+                              style: AppStyles.navyBlue15BoldStyle,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
