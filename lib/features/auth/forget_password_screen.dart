@@ -55,29 +55,18 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 ),
                 const HeightSpace(28),
                 SizedBox(
-                  width: 200.w,
+                  width: 250.w,
                   child: Text(
-                    "Forgot Password",
+                    "Forgot Password?",
                     style: AppStyles.primaryHeadlineStyle,
                   ),
                 ),
-                const HeightSpace(32),
+                const HeightSpace(10),
                 CustomTextWidget(
                   text:
                       "Don't worry! It occurs. Please enter the email address linked with your account.",
                 ),
                 const HeightSpace(32),
-                CustomTextfield(
-                  hintText: "Username",
-                  controller: userNameController,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "Enter your User Name";
-                    }
-                    return null;
-                  },
-                ),
-                const HeightSpace(15),
                 CustomTextfield(
                   hintText: "Enter your Email",
                   controller: emailController,
@@ -90,7 +79,8 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                   },
                 ),
                 const HeightSpace(30),
-                PrimaryButtonWidget(buttonText: "Send Code", onPress: () {}),
+                PrimaryButtonWidget(buttonText: "Send Code", onPress: () {
+                }),
                 const HeightSpace(80),
                 Center(
                   child: InkWell(

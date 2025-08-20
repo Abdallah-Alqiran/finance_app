@@ -1,4 +1,3 @@
-
 import 'package:finance_app/core/styling/app_colors.dart';
 import 'package:finance_app/core/styling/app_styles.dart';
 import 'package:finance_app/core/widgets/custom_textfield.dart';
@@ -100,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       onPressed: () {
                         GoRouter.of(
                           context,
-                        ).pushNamed(AppRoutes.forgetPassword);
+                        ).pushNamed(AppRoutes.forgetPasswordScreen);
                       },
                       child: Text(
                         "Forget Password",
@@ -109,13 +108,16 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   const HeightSpace(30),
-                  PrimaryButtonWidget(buttonText: "Login", onPress: () {
-                    if (formKey.currentState!.validate()) {
-                      
-                    } else {
-                      
-                    }
-                  }),
+                  PrimaryButtonWidget(
+                    buttonText: "Login",
+                    onPress: () {
+                      if (formKey.currentState!.validate()) {
+                        GoRouter.of(
+                          context,
+                        ).pushNamed(AppRoutes.verifyOtpScreen);
+                      } else {}
+                    },
+                  ),
                   const HeightSpace(35),
                   const CustomOrLoginWidget(),
                   const HeightSpace(22),
@@ -124,7 +126,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   Center(
                     child: InkWell(
                       onTap: () {
-                        GoRouter.of(context).pushNamed(AppRoutes.registerScreen);
+                        GoRouter.of(
+                          context,
+                        ).pushNamed(AppRoutes.registerScreen);
                       },
                       child: RichText(
                         text: TextSpan(

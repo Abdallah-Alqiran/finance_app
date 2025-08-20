@@ -137,7 +137,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       onPressed: () {
                         GoRouter.of(
                           context,
-                        ).pushNamed(AppRoutes.forgetPassword);
+                        ).pushNamed(AppRoutes.forgetPasswordScreen);
                       },
                       child: Text(
                         "Forget Password",
@@ -150,6 +150,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     buttonText: "Register",
                     onPress: () {
                       if (formKey.currentState!.validate()) {
+                        GoRouter.of(
+                          context,
+                        ).pushNamed(AppRoutes.verifyOtpScreen);
                       } else {}
                     },
                   ),

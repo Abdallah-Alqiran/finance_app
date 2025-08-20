@@ -1,6 +1,8 @@
 import 'package:finance_app/features/auth/forget_password_screen.dart';
 import 'package:finance_app/features/auth/login_screen.dart';
 import 'package:finance_app/features/auth/register_screen.dart';
+import 'package:finance_app/features/auth/verify_otp/verify_otp_screen.dart';
+import 'package:finance_app/features/main_screen/main_screen.dart';
 import 'package:finance_app/features/on_boarding_screen.dart';
 import 'package:finance_app/routing/app_routes.dart';
 import 'package:go_router/go_router.dart';
@@ -25,9 +27,19 @@ class RouterGenerationConfig {
         builder: (context, state) => RegisterScreen(), 
       ),
       GoRoute(
-        path: AppRoutes.forgetPassword,
-        name: AppRoutes.forgetPassword,
+        path: AppRoutes.forgetPasswordScreen,
+        name: AppRoutes.forgetPasswordScreen,
         builder: (context, state) => ForgetPasswordScreen(), 
+      ),
+      GoRoute(
+        path: AppRoutes.verifyOtpScreen,
+        name: AppRoutes.verifyOtpScreen,
+        builder: (context, state) => VerifyOtpScreen(), 
+      ),
+      GoRoute(
+        path: AppRoutes.mainScreen,
+        name: AppRoutes.mainScreen,
+        builder: (context, state) => MainScreen(), 
       ),
 
     ]

@@ -9,14 +9,18 @@ class CustomOrLoginWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        SizedBox(width: 90.w, child: const Divider()),
-        const WidthSpace(12),
-        Text(text, style: AppStyles.navyBlue15BoldStyle),
-        const WidthSpace(12),
-        SizedBox(width: 90.w, child: const Divider()),
-      ],
+    return SizedBox(
+      width: double.infinity,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(width: 90.w, child: const Divider()),
+          const WidthSpace(12),
+          Text(text, style: AppStyles.navyBlue15BoldStyle),
+          const WidthSpace(12),
+          SizedBox(width: 90.w, child: const Divider()),
+        ],
+      ),
     );
   }
 }
